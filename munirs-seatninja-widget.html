@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Munir's — Reservations widget</title>
+<link rel="stylesheet" href="munirs-seatninja-widget.css">
+<style>
+  /* Demo page chrome only — not part of the widget */
+  body { margin: 0; background: #f4ede0; font-family: Georgia, serif; color: #5b6a4a; }
+  .demo { max-width: 1040px; margin: 0 auto; padding: 48px 16px 80px; }
+  .demo h1 { font-family: 'Bebas Neue', sans-serif; letter-spacing: .1em; font-weight: 400; font-size: 2rem; margin: 0 0 6px; }
+  .demo p.lead { margin: 0 0 36px; font-style: italic; opacity: .8; }
+  .demo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; align-items: start; }
+  .demo-label { font-family: 'Bebas Neue', sans-serif; letter-spacing: .14em; font-size: .95rem; margin: 0 0 10px; opacity: .7; }
+  pre { background: #2f3628; color: #ffe6be; padding: 18px 20px; border-radius: 6px; overflow: auto; font-size: 12.5px; line-height: 1.55; }
+  code { font-family: Consolas, Menlo, monospace; }
+  h2 { font-family: 'Bebas Neue', sans-serif; letter-spacing: .1em; font-weight: 400; font-size: 1.4rem; margin: 48px 0 10px; }
+</style>
+</head>
+<body>
+<div class="demo">
+  <h1>Munir's Tapas &amp; Cocktails — SeatNinja widget</h1>
+  <p class="lead">Branded container + button theme for the SeatNinja reservation and wait-list buttons. Restaurant ID 80094.</p>
+
+  <div class="demo-grid">
+
+    <div>
+      <p class="demo-label">Cream card (default)</p>
+
+      <!-- ============ WIDGET START (copy from here) ============ -->
+      <div class="munirs-reserve">
+        <p class="munirs-reserve__brand">Munirs</p>
+        <p class="munirs-reserve__tag">Tapas <span class="munirs-reserve__olive"></span> Cocktails</p>
+
+        <p class="munirs-reserve__title">Reserve a Table</p>
+        <p class="munirs-reserve__note">Join us for small plates &amp; stiff drinks.</p>
+
+        <!-- Reservations -->
+        <script type="text/javascript" src="https://sdk.seatninja.com/web/sn2.js"
+          data-restaurant-id="80094"
+          data-api-key="O5hlNjVXSU14zX1ZE7URcaey2QgGOxWJa3wq5po9"
+          data-container-css="munirs-sn-container"
+          data-button-css="munirs-sn-btn"
+          data-button-title="Book a Table"></script>
+
+        <!-- Wait List -->
+        <script type="text/javascript" src="https://sdk.seatninja.com/web/sn2.js"
+          data-restaurant-id="80094"
+          data-api-key="O5hlNjVXSU14zX1ZE7URcaey2QgGOxWJa3wq5po9"
+          data-wait-list="true"
+          data-container-css="munirs-sn-container"
+          data-button-css="munirs-sn-btn munirs-sn-btn--outline"
+          data-button-title="Join Wait List"></script>
+
+        <p class="munirs-reserve__addr">1 Fulton St. Troy, New York</p>
+      </div>
+      <!-- ============ WIDGET END ============ -->
+    </div>
+
+    <div>
+      <p class="demo-label">Olive card (alternate)</p>
+
+      <div class="munirs-reserve munirs-reserve--olive">
+        <p class="munirs-reserve__brand">Munirs</p>
+        <p class="munirs-reserve__tag">Tapas <span class="munirs-reserve__olive"></span> Cocktails</p>
+
+        <p class="munirs-reserve__title">Reserve a Table</p>
+        <p class="munirs-reserve__note">Join us for small plates &amp; stiff drinks.</p>
+
+        <script type="text/javascript" src="https://sdk.seatninja.com/web/sn2.js"
+          data-restaurant-id="80094"
+          data-api-key="O5hlNjVXSU14zX1ZE7URcaey2QgGOxWJa3wq5po9"
+          data-container-css="munirs-sn-container"
+          data-button-css="munirs-sn-btn"
+          data-button-title="Book a Table"></script>
+
+        <script type="text/javascript" src="https://sdk.seatninja.com/web/sn2.js"
+          data-restaurant-id="80094"
+          data-api-key="O5hlNjVXSU14zX1ZE7URcaey2QgGOxWJa3wq5po9"
+          data-wait-list="true"
+          data-container-css="munirs-sn-container"
+          data-button-css="munirs-sn-btn munirs-sn-btn--outline"
+          data-button-title="Join Wait List"></script>
+
+        <p class="munirs-reserve__addr">1 Fulton St. Troy, New York</p>
+      </div>
+    </div>
+
+  </div>
+
+  <h2>Buttons only (no card)</h2>
+  <p class="lead">If the site already has its own section, drop just the script tags in and the buttons pick up the theme.</p>
+  <div style="text-align:center; padding: 24px; background:#ffe6be; border-radius:6px;">
+    <script type="text/javascript" src="https://sdk.seatninja.com/web/sn2.js"
+      data-restaurant-id="80094"
+      data-api-key="O5hlNjVXSU14zX1ZE7URcaey2QgGOxWJa3wq5po9"
+      data-container-css="munirs-sn-container"
+      data-button-css="munirs-sn-btn"></script>
+    <script type="text/javascript" src="https://sdk.seatninja.com/web/sn2.js"
+      data-restaurant-id="80094"
+      data-api-key="O5hlNjVXSU14zX1ZE7URcaey2QgGOxWJa3wq5po9"
+      data-wait-list="true"
+      data-container-css="munirs-sn-container"
+      data-button-css="munirs-sn-btn munirs-sn-btn--gold"></script>
+  </div>
+
+  <h2>Install</h2>
+  <pre><code>&lt;!-- 1. In &lt;head&gt; --&gt;
+&lt;link rel="stylesheet" href="munirs-seatninja-widget.css"&gt;
+
+&lt;!-- 2. Wherever the widget should appear --&gt;
+&lt;div class="munirs-reserve"&gt;
+  &lt;p class="munirs-reserve__brand"&gt;Munirs&lt;/p&gt;
+  &lt;p class="munirs-reserve__tag"&gt;Tapas &lt;span class="munirs-reserve__olive"&gt;&lt;/span&gt; Cocktails&lt;/p&gt;
+  &lt;p class="munirs-reserve__title"&gt;Reserve a Table&lt;/p&gt;
+
+  &lt;script src="https://sdk.seatninja.com/web/sn2.js"
+    data-restaurant-id="80094"
+    data-api-key="O5hlNjVXSU14zX1ZE7URcaey2QgGOxWJa3wq5po9"
+    data-container-css="munirs-sn-container"
+    data-button-css="munirs-sn-btn"
+    data-button-title="Book a Table"&gt;&lt;/script&gt;
+
+  &lt;script src="https://sdk.seatninja.com/web/sn2.js"
+    data-restaurant-id="80094"
+    data-api-key="O5hlNjVXSU14zX1ZE7URcaey2QgGOxWJa3wq5po9"
+    data-wait-list="true"
+    data-container-css="munirs-sn-container"
+    data-button-css="munirs-sn-btn munirs-sn-btn--outline"
+    data-button-title="Join Wait List"&gt;&lt;/script&gt;
+
+  &lt;p class="munirs-reserve__addr"&gt;1 Fulton St. Troy, New York&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</body>
+</html>

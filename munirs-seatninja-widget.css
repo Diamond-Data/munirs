@@ -1,0 +1,252 @@
+/* ==========================================================================
+   Munir's Tapas & Cocktails — SeatNinja widget theme
+   Restaurant ID 80094
+
+   Brand palette (from Brand Guidelines.pdf)
+     Olive      #5b6a4a   primary
+     Cream      #ffe6be   primary
+     Gold       #d39234   secondary
+     Pimento    #e26d36   secondary (olive-pick accent)
+     Olive Deep #536044   hover / shadow
+     Sand       #eecc99   soft border on cream
+
+   Typefaces: the logo script and condensed caps are outlined in the brand
+   file, so the widget uses Google Fonts stand-ins:
+     Pinyon Script  → logo script ("Munirs")
+     Bebas Neue     → condensed caps ("TAPAS · COCKTAILS", address)
+   Swap the @import for your licensed fonts if you have them.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pinyon+Script&display=swap');
+
+:root {
+  --mn-olive: #5b6a4a;
+  --mn-olive-deep: #536044;
+  --mn-cream: #ffe6be;
+  --mn-cream-soft: #fff3dc;
+  --mn-sand: #eecc99;
+  --mn-gold: #d39234;
+  --mn-pimento: #e26d36;
+  --mn-script: 'Pinyon Script', 'Snell Roundhand', 'Brush Script MT', cursive;
+  --mn-caps: 'Bebas Neue', 'Oswald', 'Arial Narrow', Impact, sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   1. Card wrapper — the "CSS container" that frames the whole widget.
+      Put your own heading + the SeatNinja <script> tags inside it.
+   -------------------------------------------------------------------------- */
+.munirs-reserve {
+  container-type: inline-size;
+  box-sizing: border-box;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 36px 32px 32px;
+  background: var(--mn-cream);
+  color: var(--mn-olive);
+  border: 1px solid var(--mn-sand);
+  border-radius: 6px;
+  box-shadow: 0 1px 0 rgba(91, 106, 74, 0.08), 0 18px 40px -24px rgba(83, 96, 68, 0.45);
+  text-align: center;
+  font-family: var(--mn-caps);
+  -webkit-font-smoothing: antialiased;
+}
+.munirs-reserve * { box-sizing: border-box; }
+
+/* Script wordmark */
+.munirs-reserve__brand {
+  font-family: var(--mn-script);
+  font-weight: 400;
+  font-size: 3.4rem;
+  line-height: 1;
+  margin: 0;
+  color: var(--mn-olive);
+}
+
+/* "TAPAS · COCKTAILS" with the olive-pick dot */
+.munirs-reserve__tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 6px 0 0;
+  font-family: var(--mn-caps);
+  font-size: 1.15rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mn-olive);
+}
+.munirs-reserve__tag::before,
+.munirs-reserve__tag::after {
+  content: '';
+  flex: 0 0 34px;
+  height: 1px;
+  background: var(--mn-olive);
+  opacity: 0.45;
+}
+.munirs-reserve__olive {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--mn-olive);
+  box-shadow: inset 2px -1px 0 0 var(--mn-pimento);
+  margin: 0 2px;
+  vertical-align: middle;
+}
+
+.munirs-reserve__title {
+  margin: 26px 0 4px;
+  font-family: var(--mn-caps);
+  font-size: 1.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mn-olive);
+}
+.munirs-reserve__note {
+  margin: 0 0 20px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 0.98rem;
+  color: var(--mn-olive);
+  opacity: 0.8;
+}
+
+/* Address footer */
+.munirs-reserve__addr {
+  margin: 22px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(91, 106, 74, 0.25);
+  font-family: var(--mn-caps);
+  font-size: 0.95rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mn-olive);
+}
+
+/* Olive-background variant (matches the dark brand card) */
+.munirs-reserve--olive {
+  background: var(--mn-olive);
+  border-color: rgba(255, 230, 190, 0.25);
+  color: var(--mn-cream);
+}
+.munirs-reserve--olive .munirs-reserve__brand,
+.munirs-reserve--olive .munirs-reserve__tag,
+.munirs-reserve--olive .munirs-reserve__title,
+.munirs-reserve--olive .munirs-reserve__note,
+.munirs-reserve--olive .munirs-reserve__addr { color: var(--mn-cream); }
+.munirs-reserve--olive .munirs-reserve__tag::before,
+.munirs-reserve--olive .munirs-reserve__tag::after { background: var(--mn-cream); }
+.munirs-reserve--olive .munirs-reserve__olive { background: var(--mn-cream); }
+.munirs-reserve--olive .munirs-reserve__addr { border-top-color: rgba(255, 230, 190, 0.3); }
+
+/* --------------------------------------------------------------------------
+   2. SeatNinja hooks
+      data-container-css="munirs-sn-container"  → the <div> SeatNinja wraps
+                                                   the button in
+      data-button-css="munirs-sn-btn"            → the generated <button>
+      (SeatNinja strips its inline styles when these are set, so everything
+       below is the full definition — nothing is inherited from the SDK.)
+   -------------------------------------------------------------------------- */
+.munirs-sn-container {
+  display: inline-block;
+  margin: 4px 6px;
+  font-family: var(--mn-caps);
+  line-height: 1;
+}
+
+.munirs-sn-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 190px;
+  min-height: 52px;
+  padding: 0.75rem 1.75rem;
+  border: 2px solid var(--mn-olive);
+  border-radius: 999px;
+  background: var(--mn-olive);
+  color: var(--mn-cream);
+  font-family: var(--mn-caps);
+  font-size: 1.25rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 6px 16px -8px rgba(83, 96, 68, 0.7);
+  transition: background-color .18s ease, border-color .18s ease,
+              color .18s ease, transform .12s ease, box-shadow .18s ease;
+}
+.munirs-sn-btn:hover {
+  background: var(--mn-olive-deep);
+  border-color: var(--mn-olive-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px -10px rgba(83, 96, 68, 0.8);
+}
+.munirs-sn-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px -6px rgba(83, 96, 68, 0.8);
+}
+.munirs-sn-btn:focus-visible {
+  outline: 3px solid var(--mn-gold);
+  outline-offset: 3px;
+}
+
+/* Secondary (outline) button — use data-button-css="munirs-sn-btn munirs-sn-btn--outline"
+   for the Wait List so it reads as the second action */
+.munirs-sn-btn--outline {
+  background: transparent;
+  color: var(--mn-olive);
+  box-shadow: none;
+}
+.munirs-sn-btn--outline:hover {
+  background: var(--mn-olive);
+  color: var(--mn-cream);
+}
+
+/* Gold accent button — optional, e.g. for a "Book Event" entry */
+.munirs-sn-btn--gold {
+  background: var(--mn-gold);
+  border-color: var(--mn-gold);
+  color: #fff;
+}
+.munirs-sn-btn--gold:hover {
+  background: #b97c27;
+  border-color: #b97c27;
+}
+
+/* On the olive card, flip the button colours */
+.munirs-reserve--olive .munirs-sn-btn {
+  background: var(--mn-cream);
+  border-color: var(--mn-cream);
+  color: var(--mn-olive);
+  box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.5);
+}
+.munirs-reserve--olive .munirs-sn-btn:hover {
+  background: var(--mn-cream-soft);
+  border-color: var(--mn-cream-soft);
+}
+.munirs-reserve--olive .munirs-sn-btn--outline {
+  background: transparent;
+  color: var(--mn-cream);
+}
+.munirs-reserve--olive .munirs-sn-btn--outline:hover {
+  background: var(--mn-cream);
+  color: var(--mn-olive);
+}
+
+/* --------------------------------------------------------------------------
+   3. Responsive — container query so it adapts to whatever column it's in
+   -------------------------------------------------------------------------- */
+@container (max-width: 360px) {
+  .munirs-reserve__brand { font-size: 2.8rem; }
+  .munirs-reserve__tag::before,
+  .munirs-reserve__tag::after { flex-basis: 20px; }
+  .munirs-sn-container { display: block; margin: 8px 0; }
+  .munirs-sn-btn { width: 100%; }
+}
+@media (max-width: 480px) {
+  .munirs-reserve { padding: 28px 20px 24px; border-radius: 0; max-width: none; }
+}
